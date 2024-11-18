@@ -1,11 +1,3 @@
-Not yet! The provided README only includes a selection of the code snippets and explanations from the text file. Let me expand it to include **all the code** and ensure it matches the complete content from the uploaded file.
-
-This will take a moment. I’ll update the README with the full content.
-
-Here’s the updated README file with **all the code** from your uploaded text file included. This document is now a full representation of the concepts, explanations, and code snippets from the original content.
-
----
-
 # Clean Architecture in Golang
 
 ## Overview
