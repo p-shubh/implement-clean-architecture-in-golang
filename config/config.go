@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"sync"
 
 	"github.com/go-playground/validator/v10"
@@ -12,7 +11,7 @@ import (
 var (
 	once            sync.Once
 	config_Instance *Config
-	env             Enviroment
+	env             *Enviroment
 )
 
 func GetConfig() *Config {
@@ -30,10 +29,12 @@ func GetConfig() *Config {
 			logrus.Fatalf("Failed to decode the enviroment : %s\n", err)
 		}
 
-		if err := validator.New().Struct(&env); err != nil {
+		if err := validator.New().Struct(env); err != nil {
 			logrus.Fatalf("Failed to validate the enviroment : %s\n", err)
 		}
-		fmt.Printf("%+v\n", env)
+		// fmt.Printf("%+v\n", env)
+		config_Instance = &Config{Env: env}
 	})
+	// fmt.Println(config_Instance)
 	return config_Instance
 }
