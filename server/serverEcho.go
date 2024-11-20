@@ -33,10 +33,15 @@ func (s *echoServer) Start() {
 	s.app.Use(middleware.Recover())
 	s.app.Use(middleware.Logger())
 	s.app.GET("/healthCheck", s.healthCheck)
+	s.routes()
 	serverUrl := fmt.Sprintf(":%d", s.conf.Env.SERVER_PORT)
 	s.app.Logger.Fatal(s.app.Start(serverUrl))
 }
 
 func (s *echoServer) healthCheck(c echo.Context) error {
 	return c.JSON(200, "server is up")
+}
+
+func (s *echoServer) routes() {
+
 }
